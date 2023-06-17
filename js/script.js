@@ -11,32 +11,6 @@ const rightScroll = document.querySelector('.right-scroll');
 const leftScroll = document.querySelector('.left-scroll');
 let counter = 0;
 
-function showVisiting() {
-    window.addEventListener('pageshow', (e) => {
-    localStorage.setItem('number', (localStorage.getItem('number') || '') + e.isTrusted)
-    let amount = localStorage.getItem('number').length / 4;
-    console.log( `You visited this website ${amount} times`)    
-    })
-}
-
-function showTotalMinutes() {
-    window.addEventListener('load', () => {
-        setInterval(setMinutes, 1000)
-    });
-    
-    if (localStorage.getItem('minute')) {
-        let totalMinutes = localStorage.getItem('minute').length / 60;
-        console.log(`You spent on this website ${Math.floor(totalMinutes)} minutes`);
-    } else {
-        console.log('Welcome!');
-  }
-}
-
-function setMinutes() {
- localStorage.setItem('minute', (localStorage.getItem('minute') || '') + 1) 
-}
-
-// I`m still working
 function addBurger() {
     if (window.innerWidth <= 600) {
         burger.classList.remove('hidden');
@@ -78,7 +52,6 @@ function makeSizeItem() {
 })
 }
 
-
  rightScroll.addEventListener('click', () => {
     if (counter >= diplomas.length - 1) counter = 1;
     slide.classList.add('carusel-animation')
@@ -96,16 +69,12 @@ leftScroll.addEventListener('click', () => {
 });
 
 
-
-
-
 addBurger();
 showBurgerList();
 hideBurgerList();
 makeSizeItem();
 window.addEventListener('resize', makeSizeItem);
-// showVisiting();
-// showTotalMinutes();
+
 
 
 
